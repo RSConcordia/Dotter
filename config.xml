@@ -18,22 +18,20 @@
     <preference name="webviewbounce"    value="true" />
 	<preference name="DisallowOverscroll" value="true" />
 	<preference name="android-build-tool" value="gradle" />
+	<preference name="AutoHideSplashScreen" value="true" />
 	<preference name="SplashScreenDelay" value="3000"/>
 	<preference name="SplashScreen" value="screen"/>
 	
     <icon src="www/icon.png" />
-   
+	<splash src="www/icon.png" />
+		
     <plugin name="cordova-plugin-whitelist" version="1" />
 	<plugin name="phonegap-plugin-barcodescanner" spec="6.0.8" />
 	<plugin spec="https://github.com/RSConcordia/cordova-plugin-geolocation.git" />
 	
-	<platform name="android">
-		<splash src="www/icon.png" platform="android" qualifier="ldpi" density="port-ldpi" />
-		<splash src="www/icon.png" platform="android" qualifier="mdpi" density="port-mdpi" />
-		<splash src="www/icon.png" platform="android" qualifier="hdpi" density="port-hdpi" />
-		<splash src="www/icon.png" platform="android" qualifier="xhdpi" density="port-xhdpi" />
-	</platform>
-	
+	<gap:plugin name="org.apache.cordova.device" />
+	<gap:plugin name="org.apache.cordova.splashscreen" />
+   
 	<access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
