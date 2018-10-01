@@ -117,16 +117,12 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	document.addEventListener('deviceready', function() {
 		
-try{
-	
 		function openMenu(e) {
 			
 			e.preventDefault();
 			e.stopPropagation();
 		
 			menu.style.left = '0px';
-		//	main.style.filter = 'blur(1px)';
-		//	main.style.webkitFilter = 'blur(1px)';
 			
 			mground.style.left = '0px';
 		}
@@ -137,8 +133,6 @@ try{
 			e.stopPropagation();
 		
 			menu.style.left = '-320px';
-		//	main.style.filter = '';
-		//	main.style.webkitFilter = '';
 			
 			mground.style.left = '-800px';
 			
@@ -177,14 +171,8 @@ try{
 		mground.addEventListener('click', closeMenu, false);
 		mground.addEventListener('touchstart', closeMenu, false);
 		
-	
-	alert( Object.keys( cordova.plugins ).join('\n') );
-		
-	
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
 		
-} catch( err ) { alert( err.stack ); }
-
 	}, false);
 	
 	function setGeolocationMaps( e ) {
@@ -228,11 +216,17 @@ try{
 		e.preventDefault();
 		e.stopPropagation();
 	
-try {
-		
 		cordova.plugins.barcodeScanner.scan(function( string ) {
 			
-			window.open( decodeURIComponent( string.text ), '_system' );
+			var url = decodeURIComponent( string.text );
+			
+			if( !/^http:\/\/|https:\/\//.test( url ) ) {
+				
+				url += 'https://'+ url;
+				
+			}
+			
+			window.open( url, '_system' );
 		
 		}, console.log, {
 			preferFrontCamera: false, 
@@ -242,8 +236,6 @@ try {
 			orientation: "landscape" 
 		});
 		
-} catch( err ) { alert( err.stack ); }
-
 	};
 	
 	function openPowered(e) {
