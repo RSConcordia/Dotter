@@ -115,10 +115,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	eLocal.appendChild( iframe );
 	eLocal.appendChild( aMaps );
 	
-//	window.addEventListener('load', function() {
 	document.addEventListener('deviceready', function() {
-		
-		alert('deviceready');
 		
 		function openMenu(e) {
 			
