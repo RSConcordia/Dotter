@@ -138,7 +138,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		//	main.style.filter = '';
 		//	main.style.webkitFilter = '';
 			
-			mground.style.left = '-400px';
+			mground.style.left = '-600px';
 			
 		}
 		
@@ -219,7 +219,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 		e.preventDefault();
 		e.stopPropagation();
-		
+	
+try {
+	
 		cordova.plugins.barcodeScanner.scan(function( string ) {
 			
 			window.open( decodeURIComponent( string.text ), '_system' );
@@ -232,6 +234,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			orientation: "landscape" 
 		});
 		
+} catch( err ) { alert( err.stack ); }
+
 	};
 	
 	function openPowered(e) {
