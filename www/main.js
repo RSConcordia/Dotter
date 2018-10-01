@@ -222,7 +222,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			
 			if( !/^http:\/\/|https:\/\//.test( url ) ) {
 				
-				url += 'https://'+ url;
+				url = 'https://'+ url;
 				
 			}
 			
