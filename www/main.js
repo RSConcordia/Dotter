@@ -175,8 +175,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		mground.addEventListener('click', closeMenu, false);
 		mground.addEventListener('touchstart', closeMenu, false);
 		
+try{
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
 		
+} catch( err ) { alert( err.stack ); }
+
 	}, false);
 	
 	function setGeolocationMaps( e ) {
