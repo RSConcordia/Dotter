@@ -138,7 +138,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		//	main.style.filter = '';
 		//	main.style.webkitFilter = '';
 			
-			mground.style.left = '-600px';
+			mground.style.left = '-800px';
 			
 		}
 		
@@ -170,10 +170,12 @@ window.addEventListener('DOMContentLoaded', function() {
 			btnPowered.addEventListener('touchstart', openPowered, false);
 		
 		
-		mground.style.left = '-400px';
+		mground.style.left = '-800px';
 		
 		mground.addEventListener('click', closeMenu, false);
 		mground.addEventListener('touchstart', closeMenu, false);
+		
+		alert( Object.keys( cordova.plugins ).join('\n') );
 		
 try{
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
@@ -224,7 +226,7 @@ try{
 		e.stopPropagation();
 	
 try {
-	
+		
 		cordova.plugins.barcodeScanner.scan(function( string ) {
 			
 			window.open( decodeURIComponent( string.text ), '_system' );
