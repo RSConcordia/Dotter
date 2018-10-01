@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		eLogo.src = 'logo.png';
 	
 	var eText = document.createElement('div');
-		eText.innerHTML += MESSAGE;
+		eText.innerHTML = MESSAGE;
 		
 	eMessage.appendChild( eLogo );
 	eMessage.appendChild( eText );
@@ -115,61 +115,62 @@ window.addEventListener('DOMContentLoaded', function() {
 	eLocal.appendChild( iframe );
 	eLocal.appendChild( aMaps );
 	
+	
+	var eTools = document.createElement('section');
+		eTools.setAttribute('class', 'tools');
+	
+	var eText = document.createElement('div');
+		eText.innerHTML = 'Ferramentas';
+		
+	
+	var lb = document.createElement('label'),
+		btn = document.createElement('button');
+		span = document.createElement('span');
+		
+	lb.innerText = 'Ler QrCode';
+	
+	btn.setAttribute('class', 'btn');
+	btn.addEventListener('click', QrReader, false);
+	btn.addEventListener('touchstart', QrReader, false);
+	
+	span.setAttribute('class', 'fa fa-camera');
+	
+	btn.appendChild( span );
+	lb.appendChild( btn );
+	
+	eTools.appendChild( eText );
+	eTools.appendChild( lb );
+	
+	var eFooter = document.createElement('div');
+		eFooter.setAttribute('class', 'info');
+	
+	var logoDotter = new Image();
+		logoDotter.src = 'icon-dotter.png';
+		
+	var ePowered = document.createElement('div');
+		ePowered.innerHTML = 'Powered by Dotter Brasil Ltda © 2018';
+	
+	eFooter.appendChild( logoDotter );
+	eFooter.appendChild( ePowered );
+	
 	document.addEventListener('deviceready', function() {
-		
-		function openMenu(e) {
-			
-			e.preventDefault();
-			e.stopPropagation();
-		
-			menu.style.left = '0px';
-			
-			mground.style.left = '0px';
-		}
-		
-		function closeMenu(e) {
-			
-			e.preventDefault();
-			e.stopPropagation();
-		
-			menu.style.left = '-320px';
-			
-			mground.style.left = '-800px';
-			
-		}
-		
-		var menu = document.body.querySelector('ul.menu'),
-			main = document.body.querySelector('main'),
-			mground = document.body.querySelector('div.mground');
+//	window.addEventListener('load', function() {
+	
+		var main = document.body.querySelector('main');
 		
 		document.head.appendChild( customStyle );
 		document.head.appendChild( eTitle );
 		
 		main.appendChild( eMessage );
 		main.appendChild( eContact );
+		
+		main.appendChild( eTools );
+		
 		main.appendChild( eLocal );
+		main.appendChild( eFooter );
 		
-		var btnOpenMenu = document.getElementById('btn-openmenu');
-			btnOpenMenu.addEventListener('click', openMenu, false);
-			btnOpenMenu.addEventListener('touchstart', openMenu, false);
-		
-		var btnCloseMenu = document.getElementById('btn-closemenu');
-			btnCloseMenu.addEventListener('click', closeMenu, false);
-			btnCloseMenu.addEventListener('touchstart', closeMenu, false);
-		
-		var btnReader = document.getElementById('btn-qrreader');
-			btnReader.addEventListener('click', QrReader, false);
-			btnReader.addEventListener('touchstart', QrReader, false);
-		
-		var btnPowered = document.getElementById('btn-powered');
-			btnPowered.addEventListener('click', openPowered, false);
-			btnPowered.addEventListener('touchstart', openPowered, false);
-		
-		
-		mground.style.left = '-800px';
-		
-		mground.addEventListener('click', closeMenu, false);
-		mground.addEventListener('touchstart', closeMenu, false);
+		eFooter.addEventListener('click', openPowered, false);
+		eFooter.addEventListener('touchstart', openPowered, false);
 		
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
 		

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.dttr.dotter" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Dotter</name>
+<widget id="com.dttr.demo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Demo</name>
 	<author  href="http://www.dotter.com.br" email="sistemas@dotter.com.br">
 		Dotter Brasil Ltda
     </author>

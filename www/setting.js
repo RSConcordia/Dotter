@@ -1,13 +1,13 @@
 
-window.COLOR1 = 'rgb(56,105,180)';
-window.COLOR2 = 'rgb(75,128,209)';
+window.COLOR1 = 'rgb(180,56,105)';
+window.COLOR2 = 'rgb(209,128,75)';
 window.CONTRAST = 'rgb(255,255,255)';
 
 window.PHONE = '(19) 3462-7611';
-window.EMAIL = 'contato@dotter.com.br';
-window.LINK = 'https://www.dotter.com.br/landing/';
+window.EMAIL = 'contato@demo.com.br';
+window.LINK = 'https://www.demo.com.br/';
 
-window.NOME = 'Dotter';
-window.MESSAGE = 'Protegidos quando estamos conectados';
+window.NOME = 'Demo';
+window.MESSAGE = 'Demonstração';
 
-window.ENDERECO = 'Av.Sao Jeronimo 2303,Americana,Sao Paulo,Brasil';
+window.ENDERECO = 'Av. Brasil 1200,Americana,Sao Paulo,Brasil';
