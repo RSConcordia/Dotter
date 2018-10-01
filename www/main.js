@@ -1,6 +1,7 @@
-//window.addEventListener('DOMContentLoaded', function() {
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
 	
+	alert('DOMContentLoaded');
+		
 	var CRLF = String.fromCharCode( 0x0D ) + String.fromCharCode( 0x0A ),
 		KEY = 'AIzaSyAj6LuyubKgTA8wlfqsTzQHKkSlTO9ZMOc';
 	
@@ -14,9 +15,6 @@ window.addEventListener('load', function() {
 	
 	var eTitle = document.createElement('title');
 		eTitle.innerHTML = NOME;
-	
-	document.head.appendChild( customStyle );
-	document.head.appendChild( eTitle );
 	
 	var eMessage = document.createElement('section');
 		eMessage.setAttribute('class', 'message');
@@ -122,6 +120,8 @@ window.addEventListener('load', function() {
 //	window.addEventListener('load', function() {
 	window.addEventListener('deviceready', function() {
 		
+		alert('deviceready');
+		
 		function openMenu(e) {
 			
 			e.preventDefault();
@@ -150,6 +150,9 @@ window.addEventListener('load', function() {
 		var menu = document.body.querySelector('ul.menu'),
 			main = document.body.querySelector('main'),
 			mground = document.body.querySelector('div.mground');
+		
+		document.head.appendChild( customStyle );
+		document.head.appendChild( eTitle );
 		
 		main.appendChild( eMessage );
 		main.appendChild( eContact );
