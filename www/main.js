@@ -117,6 +117,8 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	document.addEventListener('deviceready', function() {
 		
+try{
+	
 		function openMenu(e) {
 			
 			e.preventDefault();
@@ -175,9 +177,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		mground.addEventListener('click', closeMenu, false);
 		mground.addEventListener('touchstart', closeMenu, false);
 		
-		alert( Object.keys( cordova.plugins ).join('\n') );
 		
-try{
+	//	alert( Object.keys( cordova.plugins ).join('\n') );
+		
+	
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
 		
 } catch( err ) { alert( err.stack ); }
