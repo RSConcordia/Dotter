@@ -18,32 +18,21 @@
     <preference name="webviewbounce"    value="true" />
 	<preference name="DisallowOverscroll" value="true" />
 	<preference name="android-build-tool" value="gradle" />
-	<preference name="SplashScreenDelay" value="10000"/>
+	<preference name="SplashScreenDelay" value="3000"/>
 	<preference name="SplashScreen" value="screen"/>
 	
     <icon src="www/icon.png" />
-    <splash src="www/icon.png" />
-	
-	<!-- icon src="www/icon.png" platform="android" qualifier="ldpi" />
-	<icon src="www/icon.png" platform="android" qualifier="mdpi" />
-	<icon src="www/icon.png" platform="android" qualifier="hdpi" />
-	<icon src="www/icon.png" platform="android" qualifier="xhdpi" />
-	<icon src="www/icon.png" platform="android" qualifier="xxhdpi" />
-	<icon src="www/icon.png" platform="android" qualifier="xxxhdpi" />
-	<icon src="www/icon.png" platform="android" qualifier="fr-xxhdpi" />
-    <gap:splash src="www/icon.png" />
-	<splash src="www/icon.png" platform="android" qualifier="ldpi" />
-	<splash src="www/icon.png" platform="android" qualifier="mdpi" />
-	<splash src="www/icon.png" platform="android" qualifier="hdpi" />
-	<splash src="www/icon.png" platform="android" qualifier="xhdpi" />
-	<splash src="www/icon.png" platform="android" qualifier="fr-xhdpi" />
-	<splash src="www/icon.png" platform="android" qualifier="port-xxhdpi" />
-	<splash src="www/icon.png" platform="android" qualifier="land-xxhdpi" />
-	<splash src="www/icon.png" platform="android" qualifier="xxxhdpi" / -->
-	
+   
     <plugin name="cordova-plugin-whitelist" version="1" />
 	<plugin name="phonegap-plugin-barcodescanner" spec="6.0.8" />
 	<plugin spec="https://github.com/RSConcordia/cordova-plugin-geolocation.git" />
+	
+	<platform name="android">
+		<splash src="www/icon.png" platform="android" qualifier="ldpi" density="port-ldpi" />
+		<splash src="www/icon.png" platform="android" qualifier="mdpi" density="port-mdpi" />
+		<splash src="www/icon.png" platform="android" qualifier="hdpi" density="port-hdpi" />
+		<splash src="www/icon.png" platform="android" qualifier="xhdpi" density="port-xhdpi" />
+	</platform>
 	
 	<access origin="*" />
     <allow-intent href="http://*/*" />
