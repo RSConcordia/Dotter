@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
 	
-	alert('DOMContentLoaded');
-		
+try {
+	
 	var CRLF = String.fromCharCode( 0x0D ) + String.fromCharCode( 0x0A ),
 		KEY = 'AIzaSyAj6LuyubKgTA8wlfqsTzQHKkSlTO9ZMOc';
 	
@@ -248,4 +248,13 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 	}
 	
+	
+	alert('DOMContentLoaded without error');
+	
+} catch( err ) {
+	
+	alert( err.stack );
+	
+}
+
 }, false);
