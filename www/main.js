@@ -1,4 +1,5 @@
-window.addEventListener('DOMContentLoaded', function() {
+//window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
 	
 	var CRLF = String.fromCharCode( 0x0D ) + String.fromCharCode( 0x0A ),
 		KEY = 'AIzaSyAj6LuyubKgTA8wlfqsTzQHKkSlTO9ZMOc';
