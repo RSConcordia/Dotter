@@ -11,18 +11,32 @@
     <content src="index.html" />
     
     <icon src="www/icon.png" />
+	<icon src="www/icon.png" platform="android" qualifier="ldpi" />
+	<icon src="www/icon.png" platform="android" qualifier="mdpi" />
+	<icon src="www/icon.png" platform="android" qualifier="hdpi" />
+	<icon src="www/icon.png" platform="android" qualifier="xhdpi" />
+	<icon src="www/icon.png" platform="android" qualifier="xxhdpi" />
+	<icon src="www/icon.png" platform="android" qualifier="xxxhdpi" />
+	<icon src="www/icon.png" platform="android" qualifier="fr-xxhdpi" />
+    <splash src="www/icon.png" />
     <gap:splash src="www/icon.png" />
+	<splash src="www/icon.png" platform="android" qualifier="ldpi" />
+	<splash src="www/icon.png" platform="android" qualifier="mdpi" />
+	<splash src="www/icon.png" platform="android" qualifier="hdpi" />
+	<splash src="www/icon.png" platform="android" qualifier="xhdpi" />
+	<splash src="www/icon.png" platform="android" qualifier="fr-xhdpi" />
+	<splash src="www/icon.png" platform="android" qualifier="port-xxhdpi" />
+	<splash src="www/icon.png" platform="android" qualifier="land-xxhdpi" />
+	<splash src="www/icon.png" platform="android" qualifier="xxxhdpi" />
 	
     <preference name="orientation"      value="portrait" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="true" />
     <preference name="webviewbounce"    value="true" />
-	<preference name="permissions" 		value="none"/>
-    <preference name="DisallowOverscroll" value="true" /> 
 	
     <plugin name="cordova-plugin-whitelist" version="1" />
-	<plugin name="phonegap-plugin-barcodescanner" />
-	<plugin name="cordova-plugin-geolocation" />
+	<plugin spec="https://github.com/phonegap/phonegap-plugin-barcodescanner.git"/>
+	<plugin name="org.apache.cordova.geolocation" spec="0.3.12" source="pgb" />
 	
 	<access origin="*" />
     <allow-intent href="http://*/*" />
