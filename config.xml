@@ -36,7 +36,7 @@
 	
     <plugin name="cordova-plugin-whitelist" version="1" />
 	<plugin spec="https://github.com/phonegap/phonegap-plugin-barcodescanner.git"/>
-	<plugin name="org.apache.cordova.geolocation" spec="0.3.12" source="pgb" />
+	<plugin spec="https://github.com/apache/cordova-plugin-geolocation.git"/>
 	
 	<access origin="*" />
     <allow-intent href="http://*/*" />
