@@ -1,7 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
 	
-try {
-	
 	var CRLF = String.fromCharCode( 0x0D ) + String.fromCharCode( 0x0A ),
 		KEY = 'AIzaSyAj6LuyubKgTA8wlfqsTzQHKkSlTO9ZMOc';
 	
@@ -118,7 +116,7 @@ try {
 	eLocal.appendChild( aMaps );
 	
 //	window.addEventListener('load', function() {
-	window.addEventListener('deviceready', function() {
+	document.addEventListener('deviceready', function() {
 		
 		alert('deviceready');
 		
@@ -248,13 +246,4 @@ try {
 		
 	}
 	
-	
-	alert('DOMContentLoaded without error');
-	
-} catch( err ) {
-	
-	alert( err.stack );
-	
-}
-
 }, false);
