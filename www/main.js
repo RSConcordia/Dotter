@@ -4,9 +4,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 		var coords = e.coords.latitude +','+ e.coords.longitude;
 		
-		iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/directions?origin='+ coords +'&destination='+ ENDERECO +'&key='+ KEY);
+		iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/directions?origin='+ coords +'&destination='+ setting.ADDRESS +'&key='+ KEY);
 		
-		aMaps.setAttribute('href', 'https://www.google.com/maps/dir/?api=1&origin='+ coords +'&destination='+ ENDERECO );
+		aMaps.setAttribute('href', 'https://www.google.com/maps/dir/?api=1&origin='+ coords +'&destination='+ setting.ADDRESS );
 	
 	};
 	
@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		e.preventDefault();
 		e.stopPropagation();
 		
-		window.open( 'mailto:'+ EMAIL +'?subject=%20&body=%20', '_system' );
+		window.open( 'mailto:'+ setting.EMAIL +'?subject=%20&body=%20', '_system' );
 	};
 	
 	function callPhone(e) {
@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		e.preventDefault();
 		e.stopPropagation();
 		
-		window.open( 'tel:'+ PHONE.replace(/[()\s-]/g, ''), '_system' );
+		window.open( 'tel:'+ setting.PHONE.replace(/[()\s-]/g, ''), '_system' );
 		
 	};
 	
@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		e.preventDefault();
 		e.stopPropagation();
 		
-		window.open( LINK, '_system' );
+		window.open( setting.LINK, '_system' );
 		
 	};
 	
@@ -76,15 +76,15 @@ window.addEventListener('DOMContentLoaded', function() {
 		KEY = 'AIzaSyAj6LuyubKgTA8wlfqsTzQHKkSlTO9ZMOc';
 	
 	var customStyle = document.createElement('style');
-		customStyle.innerHTML = '.ground { background-color:'+ COLOR1 +' }' + CRLF +
-								'.colored { color:'+ COLOR1 +' }' + CRLF +
-								'.colored:active { color:'+ COLOR2 +' }' + CRLF +
-								'.contrast { color:'+ CONTRAST +' }' + CRLF +
-								'.btn { background-color:'+ COLOR1 +'; color:'+ CONTRAST +'; padding:15px; border-radius:50%; box-shadow:2px 3px 15px rgba(25,25,25,.5); }' + CRLF +
-								'.btn:hover { background-color:'+ CONTRAST +'; color:'+ COLOR2 +' }';
+		customStyle.innerHTML = '.ground { background-color:'+ setting.COLOR1 +' }' + CRLF +
+								'.colored { color:'+ setting.COLOR1 +' }' + CRLF +
+								'.colored:active { color:'+ setting.COLOR2 +' }' + CRLF +
+								'.contrast { color:'+ setting.CONTRAST +' }' + CRLF +
+								'.btn { background-color:'+ setting.COLOR1 +'; color:'+ setting.CONTRAST +'; padding:15px; border-radius:50%; box-shadow:2px 3px 15px rgba(25,25,25,.5); }' + CRLF +
+								'.btn:hover { background-color:'+ setting.CONTRAST +'; color:'+ setting.COLOR2 +' }';
 	
 	var eTitle = document.createElement('title');
-		eTitle.innerHTML = NOME;
+		eTitle.innerHTML = setting.NAME;
 	
 	var eMessage = document.createElement('section');
 		eMessage.setAttribute('class', 'message');
@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		eLogo.src = 'logo.png';
 	
 	var eText = document.createElement('div');
-		eText.innerHTML = MESSAGE;
+		eText.innerHTML = setting.MESSAGE;
 		
 	eMessage.appendChild( eLogo );
 	eMessage.appendChild( eText );
@@ -101,13 +101,13 @@ window.addEventListener('DOMContentLoaded', function() {
 	var eContact = document.createElement('section');
 		eContact.setAttribute('class', 'contact');
 	
-	if( PHONE ) {
+	if( setting.PHONE ) {
 		
 		var lb = document.createElement('label'),
 			btn = document.createElement('button');
 			span = document.createElement('span');
 			
-		lb.innerText = PHONE;
+		lb.innerText = setting.PHONE;
 		
 		btn.setAttribute('class', 'btn');
 		btn.addEventListener('click', callPhone, false);
@@ -122,13 +122,13 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	}
 	
-	if( EMAIL ) {
+	if( setting.EMAIL ) {
 		
 		var lb = document.createElement('label'),
 			btn = document.createElement('button');
 			span = document.createElement('span');
 			
-		lb.innerText = EMAIL;
+		lb.innerText = setting.EMAIL;
 		
 		btn.setAttribute('class', 'btn');
 		btn.addEventListener('click', mailTo, false);
@@ -143,13 +143,13 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 	}
 	
-	if( LINK ) {
+	if( setting.LINK ) {
 		
 		var lb = document.createElement('label'),
 			btn = document.createElement('button');
 			span = document.createElement('span');
 			
-		lb.innerText = LINK.replace(/^https:\/\/|http:\/\//i, '');
+		lb.innerText = setting.LINK.replace(/^https:\/\/|http:\/\//i, '');
 		
 		btn.setAttribute('class', 'btn');
 		btn.addEventListener('click', openWebSite, false);
@@ -165,22 +165,30 @@ window.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	var eLocal = document.createElement('center');
+		eLocal.setAttribute('id', 'local');
 		eLocal.setAttribute('class', 'local ground');
 		
+		eLocal.addEventListener('click', function() {
+			
+			location.href = '#local';
+			
+		}, false);
+		
 	var h2 = document.createElement('h2');
+		h2.setAttribute('class', 'contrast');
 		h2.innerHTML = 'Como chegar ate nós';
 	
 	var iframe = document.createElement('iframe');
 		iframe.setAttribute('frameborder', '0');
 		iframe.setAttribute('allowfullscreen', '1');
-		iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/search?q='+ ENDERECO +'&key='+ KEY);
+		iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/search?q='+ setting.ADDRESS +'&key='+ KEY);
 		
 	/// https://developers.google.com/maps/documentation/urls/guide#directions-action
 	
 	var aMaps = document.createElement('a');
 		aMaps.setAttribute('class', 'contrast');
 		aMaps.setAttribute('target', '_blank');
-		aMaps.setAttribute('href', 'https://www.google.com/maps/search/?api=1&query='+ ENDERECO );
+		aMaps.setAttribute('href', 'https://www.google.com/maps/search/?api=1&query='+ setting.ADDRESS );
 		aMaps.innerHTML = 'Abrir no Maps';
 		
 	eLocal.appendChild( h2 );
@@ -226,8 +234,8 @@ window.addEventListener('DOMContentLoaded', function() {
 	eFooter.appendChild( logoDotter );
 	eFooter.appendChild( ePowered );
 	
-//document.addEventListener('deviceready', function() {
-	window.addEventListener('load', function() {
+	document.addEventListener('deviceready', function() {
+//	window.addEventListener('load', function() {
 	
 		var main = document.body.querySelector('main');
 		
@@ -241,9 +249,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 		main.appendChild( eLocal );
 		main.appendChild( eFooter );
-		
-	//	eFooter.addEventListener('click', openPowered, false);
-	//	eFooter.addEventListener('touchstart', openPowered, false);
 		
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
 		

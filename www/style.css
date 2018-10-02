@@ -1,14 +1,8 @@
 * { padding:0; margin:0; }
-			
+
 button, input { background:transparent; border:none; outline:none; }
 
 a { text-decoration:none; color:black; }
-
-header > button
-	{
-		height:20px;
-		padding:10px;
-	}
 
 .message 
 	{
@@ -76,7 +70,6 @@ header > button
 .local > h2
 	{
 		margin:15px 0;
-		color:rgb( 255, 255, 255 );
 	}
 .local > iframe
 	{
