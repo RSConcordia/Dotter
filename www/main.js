@@ -1,5 +1,77 @@
 window.addEventListener('DOMContentLoaded', function() {
 	
+	function setGeolocationMaps( e ) {
+		
+		var coords = e.coords.latitude +','+ e.coords.longitude;
+		
+		iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/directions?origin='+ coords +'&destination='+ ENDERECO +'&key='+ KEY);
+		
+		aMaps.setAttribute('href', 'https://www.google.com/maps/dir/?api=1&origin='+ coords +'&destination='+ ENDERECO );
+	
+	};
+	
+	function mailTo(e) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+		
+		window.open( 'mailto:'+ EMAIL +'?subject=%20&body=%20', '_system' );
+	};
+	
+	function callPhone(e) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+		
+		window.open( 'tel:'+ PHONE.replace(/[()\s-]/g, ''), '_system' );
+		
+	};
+	
+	function openWebSite(e) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+		
+		window.open( LINK, '_system' );
+		
+	};
+	
+	function QrReader(e) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+	
+		cordova.plugins.barcodeScanner.scan(function( string ) {
+			
+			var url = decodeURIComponent( string.text );
+			
+			if( !/^http:\/\/|https:\/\//.test( url ) ) {
+				
+				url = 'http://'+ url;
+				
+			}
+			
+			window.open( url, '_system' );
+		
+		}, console.log, {
+			preferFrontCamera: false, 
+			showFlipCameraButton: false, 
+			formats: 'QR_CODE', 
+			prompt: '',
+			orientation: 'portrait' 
+		});
+		
+	};
+	
+	function openPowered(e) {
+		
+		e.preventDefault();
+		e.stopPropagation();
+		
+		window.open( 'https://dotter.com.br/landing/', '_system' );
+		
+	}
+	
 	var CRLF = String.fromCharCode( 0x0D ) + String.fromCharCode( 0x0A ),
 		KEY = 'AIzaSyAj6LuyubKgTA8wlfqsTzQHKkSlTO9ZMOc';
 	
@@ -115,14 +187,12 @@ window.addEventListener('DOMContentLoaded', function() {
 	eLocal.appendChild( iframe );
 	eLocal.appendChild( aMaps );
 	
-	
 	var eTools = document.createElement('section');
 		eTools.setAttribute('class', 'tools');
 	
 	var eText = document.createElement('div');
 		eText.innerHTML = 'Ferramentas';
 		
-	
 	var lb = document.createElement('label'),
 		btn = document.createElement('button');
 		span = document.createElement('span');
@@ -147,6 +217,9 @@ window.addEventListener('DOMContentLoaded', function() {
 	var logoDotter = new Image();
 		logoDotter.src = 'icon-dotter.png';
 		
+		logoDotter.addEventListener('click', openPowered, false);
+		logoDotter.addEventListener('touchstart', openPowered, false);
+		
 	var ePowered = document.createElement('div');
 		ePowered.innerHTML = 'Powered by Dotter Brasil Ltda © 2018';
 	
@@ -169,83 +242,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		main.appendChild( eLocal );
 		main.appendChild( eFooter );
 		
-		eFooter.addEventListener('click', openPowered, false);
-		eFooter.addEventListener('touchstart', openPowered, false);
+	//	eFooter.addEventListener('click', openPowered, false);
+	//	eFooter.addEventListener('touchstart', openPowered, false);
 		
 		navigator.geolocation.getCurrentPosition( setGeolocationMaps, console.log, { enableHighAccuracy:true, timeout:5000,  maximumAge:0 });
 		
 	}, false);
-	
-	function setGeolocationMaps( e ) {
-		
-		var coords = e.coords.latitude +','+ e.coords.longitude;
-		
-		iframe.setAttribute('src', 'https://www.google.com/maps/embed/v1/directions?origin='+ coords +'&destination='+ ENDERECO +'&key='+ KEY);
-		
-		aMaps.setAttribute('href', 'https://www.google.com/maps/dir/?api=1&origin='+ coords +'&destination='+ ENDERECO );
-	
-	};
-	
-	function mailTo(e) {
-		
-		e.preventDefault();
-		e.stopPropagation();
-		
-		window.open( 'mailto:'+ EMAIL +'?subject=%20&body=%20', '_system' );
-	};
-	
-	function callPhone(e) {
-		
-		e.preventDefault();
-		e.stopPropagation();
-		
-		window.open( 'tel:'+ PHONE.replace(/[()\s-]/g, ''), '_system' );
-		
-	};
-	
-	function openWebSite(e) {
-		
-		e.preventDefault();
-		e.stopPropagation();
-		
-		window.open( LINK, '_system' );
-		
-	};
-	
-	function QrReader(e) {
-		
-		e.preventDefault();
-		e.stopPropagation();
-	
-		cordova.plugins.barcodeScanner.scan(function( string ) {
-			
-			var url = decodeURIComponent( string.text );
-			
-			if( !/^http:\/\/|https:\/\//.test( url ) ) {
-				
-				url = 'http://'+ url;
-				
-			}
-			
-			window.open( url, '_system' );
-		
-		}, console.log, {
-			preferFrontCamera: false, 
-			showFlipCameraButton: false, 
-			formats: "QR_CODE", 
-			prompt: "",
-			orientation: "landscape" 
-		});
-		
-	};
-	
-	function openPowered(e) {
-		
-		e.preventDefault();
-		e.stopPropagation();
-		
-		window.open( 'https://dotter.com.br/landing/', '_system' );
-		
-	}
 	
 }, false);
