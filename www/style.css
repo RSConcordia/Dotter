@@ -10,65 +10,6 @@ header > button
 		padding:10px;
 	}
 
-/*
-.menu	
-	{
-		position:fixed;
-		width:300px;
-		left:0;
-		top:0; 
-		bottom:0;
-		background:rgb(255,255,255);
-		box-shadow:2px 3px 25px rgba(25,25,25,.5);
-		overflow-y:scroll;
-		transition:all .5s;
-	}
-.menu > .item
-	{
-		padding:15px;
-	}
-.menu > .item > span
-	{	
-		padding:0 15px;
-	}
-.menu > .item > div
-	{
-		display:inline-block;
-		height:30px;
-		width:180px;
-		padding:0 15px;
-		border-bottom:1px solid rgb(200,200,200);
-	}
-.menu > .info
-	{
-		position:absolute;
-		width:300px;
-		padding:15px 0;
-		bottom:0;
-		text-align:center;
-		background-color:rgb(245,245,245);
-	}
-.menu > .info > img
-	{
-		max-width:100px;
-		border-radius:50%;
-		margin:20px 0;
-	}
-.menu > .info > div
-	{
-		font-size:14px;
-		color:rgb(100,100,100);
-	}
-.mground
-	{
-		position:absolute;
-		left:0; right:0;
-		top:0; bottom:0;
-		width:100%; height:100%;
-		transition:all .5s;
-		background-color:rgba(25,25,25,.5);
-	}
-*/
 .message 
 	{
 		text-align:center;
@@ -162,8 +103,7 @@ header > button
 	}
 .info > img
 	{
-		max-width:100px;
-		border-radius:50%;
+		max-height:100px;
 		margin:20px 0;
 	}
 .info > div

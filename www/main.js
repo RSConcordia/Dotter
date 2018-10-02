@@ -215,7 +215,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		eFooter.setAttribute('class', 'info');
 	
 	var logoDotter = new Image();
-		logoDotter.src = 'icon-dotter.png';
+		logoDotter.src = 'logo-dotter.png';
 		
 		logoDotter.addEventListener('click', openPowered, false);
 		logoDotter.addEventListener('touchstart', openPowered, false);
@@ -226,8 +226,8 @@ window.addEventListener('DOMContentLoaded', function() {
 	eFooter.appendChild( logoDotter );
 	eFooter.appendChild( ePowered );
 	
-	document.addEventListener('deviceready', function() {
-//	window.addEventListener('load', function() {
+//document.addEventListener('deviceready', function() {
+	window.addEventListener('load', function() {
 	
 		var main = document.body.querySelector('main');
 		
