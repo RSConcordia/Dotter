@@ -1,5 +1,33 @@
 window.addEventListener('DOMContentLoaded', function() {
 	
+	
+	var colors = {
+		Azul: '#003399',
+		Verde: '#009933',
+		Vermelho: '#CC3300',
+		Amarelo: '#FFCC00'
+	};
+	
+	var images = [ 'Azul', 'Verde', 'Vermelho', 'Amarelo' ];
+	
+	
+	function getStyleText( color ) {
+	
+		return 	'.ground { background-color:'+ color +' }' + CRLF +
+				'.colored { color:'+ color +' }' + CRLF +
+				'.colored:active { color:'+ color +' }' + CRLF +
+				'.contrast { color:'+ setting.CONTRAST +' }' + CRLF +
+				'.btn { background-color:'+ color +'; color:#fff; padding:15px; border-radius:50%; box-shadow:2px 3px 15px rgba(25,25,25,.5); }' + CRLF +
+				'.btn:hover { background-color:#fff; color:'+ color +' }';
+		
+		
+	};
+	
+	setting.COLOR1 = '#003399';
+	setting.COLOR2 = '#003399';
+	
+	/* .................................................... */
+	
 	function setGeolocationMaps( e ) {
 		
 		var coords = e.coords.latitude +','+ e.coords.longitude;
@@ -90,8 +118,30 @@ window.addEventListener('DOMContentLoaded', function() {
 		eMessage.setAttribute('class', 'message');
 	
 	var eLogo = document.createElement('img');
-		eLogo.src = 'logo.png';
-	
+	//	eLogo.src = 'logo.png';
+		eLogo.src = 'Azul.png';
+		
+		eLogo.addEventListener('click', function() {
+			
+			var srcImg = this.src.split('/').pop().replace('.png', '');
+			
+			var index = images.indexOf( srcImg ) + 1;
+			
+			if( index >= images.length ) {
+				
+				index = 0;
+				
+			}
+			
+			var newImage = images[ index ];
+			
+			eLogo.src = newImage +'.png';
+			
+			customStyle.innerHTML = getStyleText( colors[ newImage ] );
+			
+			
+		}, false);
+		
 	var eText = document.createElement('div');
 		eText.innerHTML = setting.MESSAGE;
 		
