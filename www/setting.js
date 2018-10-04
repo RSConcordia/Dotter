@@ -1,1 +1,11 @@
-window.setting = {"COLOR1":"#1595DB","COLOR2":"#15648E","CONTRAST":"#FFFFFF","PHONE":"+55 (19) 3462-7611","EMAIL":"contato@dotter.com.br","LINK":"dotter.com.br","NAME":"Dotter","MESSAGE":"Protegidos quando estamos conectados","ADDRESS":"Avenida São Jerônimo 2303,Americana,SP"}
+window.setting = {
+	"COLOR1": "#1595DB",
+	"COLOR2": "#15648E",
+	"CONTRAST": "#FFFFFF",
+	"PHONE": "+55 (19) 9 9999-9999",
+	"EMAIL": "seuemail@domain.com",
+	"LINK": "seusite.com.br",
+	"NAME": "Seu Nome",
+	"MESSAGE": "Seu Slogan",
+	"ADDRESS": "Avenida Brasil 2303,Americana,SP"
+}
